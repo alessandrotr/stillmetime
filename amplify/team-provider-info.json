@@ -1,15 +1,20 @@
 {
-  "dev": {
+  "main": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-stillmetime-dev-112918-authRole",
-      "UnauthRoleArn": "arn:aws:iam::110247075237:role/amplify-stillmetime-dev-112918-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::110247075237:role/amplify-stillmetime-dev-112918-authRole",
+      "AuthRoleName": "amplify-stillmetime-main-95110-authRole",
+      "UnauthRoleArn": "arn:aws:iam::110247075237:role/amplify-stillmetime-main-95110-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::110247075237:role/amplify-stillmetime-main-95110-authRole",
       "Region": "eu-central-1",
-      "DeploymentBucketName": "amplify-stillmetime-dev-112918-deployment",
-      "UnauthRoleName": "amplify-stillmetime-dev-112918-unauthRole",
-      "StackName": "amplify-stillmetime-dev-112918",
-      "StackId": "arn:aws:cloudformation:eu-central-1:110247075237:stack/amplify-stillmetime-dev-112918/01f91370-5b86-11ee-b19d-0adbe3474fbd",
-      "AmplifyAppId": "d37q0ad43yj7br"
+      "DeploymentBucketName": "amplify-stillmetime-main-95110-deployment",
+      "UnauthRoleName": "amplify-stillmetime-main-95110-unauthRole",
+      "StackName": "amplify-stillmetime-main-95110",
+      "StackId": "arn:aws:cloudformation:eu-central-1:110247075237:stack/amplify-stillmetime-main-95110/0e81f870-5b89-11ee-bfce-02698e64eb25",
+      "AmplifyAppId": "d1woxovizg9t3m"
+    },
+    "categories": {
+      "auth": {
+        "stillmetime": {}
+      }
     }
   }
 }
