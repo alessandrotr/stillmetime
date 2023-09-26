@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3stillmetimestorage132c2a47",
+  "bucketName": "stillmetime-storage-132c2a47",
+  "policyUUID": "8d107d6d",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

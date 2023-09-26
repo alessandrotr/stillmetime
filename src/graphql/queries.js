@@ -83,6 +83,15 @@ export const listPosts = /* GraphQL */ `
         content
         createdAt
         updatedAt
+        Comments {
+          items {
+            id
+            postID
+            content
+            createdAt
+            updatedAt
+          }
+        }
       }
       nextToken
     }

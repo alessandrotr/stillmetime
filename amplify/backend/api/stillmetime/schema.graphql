@@ -9,4 +9,4 @@ type Post @model @auth(rules: [{allow: public}]) {
   title: String!
   content: String
   Comments: [Comment] @hasMany(indexName: "byPost", fields: ["id"])
-}
+} 
