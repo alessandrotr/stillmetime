@@ -26,9 +26,13 @@ export default function PostUpdateForm(props) {
   const initialValues = {
     title: "",
     content: "",
+    imageStorageKey: "",
   };
   const [title, setTitle] = React.useState(initialValues.title);
   const [content, setContent] = React.useState(initialValues.content);
+  const [imageStorageKey, setImageStorageKey] = React.useState(
+    initialValues.imageStorageKey
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = postRecord
@@ -36,6 +40,7 @@ export default function PostUpdateForm(props) {
       : initialValues;
     setTitle(cleanValues.title);
     setContent(cleanValues.content);
+    setImageStorageKey(cleanValues.imageStorageKey);
     setErrors({});
   };
   const [postRecord, setPostRecord] = React.useState(post);
@@ -50,6 +55,7 @@ export default function PostUpdateForm(props) {
   const validations = {
     title: [{ type: "Required" }],
     content: [],
+    imageStorageKey: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -79,6 +85,7 @@ export default function PostUpdateForm(props) {
         let modelFields = {
           title,
           content,
+          imageStorageKey,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -136,6 +143,7 @@ export default function PostUpdateForm(props) {
             const modelFields = {
               title: value,
               content,
+              imageStorageKey,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -161,6 +169,7 @@ export default function PostUpdateForm(props) {
             const modelFields = {
               title,
               content: value,
+              imageStorageKey,
             };
             const result = onChange(modelFields);
             value = result?.content ?? value;
@@ -174,6 +183,32 @@ export default function PostUpdateForm(props) {
         errorMessage={errors.content?.errorMessage}
         hasError={errors.content?.hasError}
         {...getOverrideProps(overrides, "content")}
+      ></TextField>
+      <TextField
+        label="Image storage key"
+        isRequired={false}
+        isReadOnly={false}
+        value={imageStorageKey}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              title,
+              content,
+              imageStorageKey: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.imageStorageKey ?? value;
+          }
+          if (errors.imageStorageKey?.hasError) {
+            runValidationTasks("imageStorageKey", value);
+          }
+          setImageStorageKey(value);
+        }}
+        onBlur={() => runValidationTasks("imageStorageKey", imageStorageKey)}
+        errorMessage={errors.imageStorageKey?.errorMessage}
+        hasError={errors.imageStorageKey?.hasError}
+        {...getOverrideProps(overrides, "imageStorageKey")}
       ></TextField>
       <Flex
         justifyContent="space-between"

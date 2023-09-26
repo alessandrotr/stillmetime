@@ -1,4 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+// next.config.js
 
-module.exports = nextConfig
+module.exports = {
+  images: {
+    domains: [
+      "stillmetime-storage-132c2a4795110-main.s3.eu-central-1.amazonaws.com",
+    ],
+  },
+};

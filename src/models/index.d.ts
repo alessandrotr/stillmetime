@@ -45,6 +45,7 @@ type EagerPost = {
   readonly title: string;
   readonly content?: string | null;
   readonly Comments?: (Comment | null)[] | null;
+  readonly imageStorageKey?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -58,6 +59,7 @@ type LazyPost = {
   readonly title: string;
   readonly content?: string | null;
   readonly Comments: AsyncCollection<Comment>;
+  readonly imageStorageKey?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

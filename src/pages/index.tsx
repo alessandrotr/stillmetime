@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { LazyComment, Post } from "@/models";
 // import PostCreateForm from "@/ui-components/PostCreateForm";
 import "../app/globals.css";
+import Image from "next/image";
 
 type HomeProps = {
   signOut: () => void;
@@ -72,6 +73,15 @@ function Home({ signOut, user }: HomeProps) {
                 key={post.id}
                 className="bg-white p-4 mb-4 text-black shadow-md"
               >
+                {post.imageStorageKey && (
+                  <Image
+                    src={post.imageStorageKey}
+                    alt="yo"
+                    width={500}
+                    height={500}
+                    layout="fixed"
+                  />
+                )}
                 <h1 className="text-3xl">{post.title}</h1>
                 <p className="my-8">{post.content}</p>
                 <div>

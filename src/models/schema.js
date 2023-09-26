@@ -115,6 +115,13 @@ export const schema = {
                         ]
                     }
                 },
+                "imageStorageKey": {
+                    "name": "imageStorageKey",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -161,5 +168,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.6",
-    "version": "03201127979c1b4c9377678bb76b8629"
+    "version": "1bdd7860c944896aa92a5227ee59e3ca"
 };
