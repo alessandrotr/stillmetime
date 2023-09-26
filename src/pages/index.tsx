@@ -64,37 +64,47 @@ function Home({ signOut, user }: HomeProps) {
 
   return (
     <div>
-      <main>
-        <h1>Hello {user.attributes.email}</h1>
-        <button onClick={signOut}>Sign Out</button>
-        {posts
-          ? posts.map((post) => (
-              <div
-                key={post.id}
-                className="bg-white p-4 mb-4 text-black shadow-md"
-              >
-                {post.imageStorageKey && (
-                  <Image
-                    src={post.imageStorageKey}
-                    alt="yo"
-                    width={500}
-                    height={500}
-                    layout="fixed"
-                  />
-                )}
-                <h1 className="text-3xl">{post.title}</h1>
-                <p className="my-8">{post.content}</p>
-                <div>
-                  <h3 className="font-bold">Comments on {post.title}:</h3>
-                  {postComments[post.id]?.map((comment) => (
-                    <p className="mt-8" key={comment.id}>
-                      {comment.content}
-                    </p>
-                  ))}
+      <main className="p-4">
+        <div className="flex justify-between pb-4">
+          <h1>Hello {user.attributes.email}</h1>
+          <button onClick={signOut}>Sign Out</button>
+        </div>
+        <div className="grid grid-cols-4 gap-4">
+          {posts
+            ? posts.map((post) => (
+                <div
+                  key={post.id}
+                  className="bg-white p-4 mb-4 text-black shadow-md rounded-xl"
+                >
+                  {post.imageStorageKey && (
+                    <Image
+                      src={post.imageStorageKey}
+                      alt="yo"
+                      width={500}
+                      height={500}
+                      // loading="lazy"
+                      priority={true}
+                    />
+                  )}
+                  <h1 className="text-3xl">{post.title}</h1>
+                  <p className="my-8">{post.content}</p>
+                  <div>
+                    {postComments[post.id]?.map((comment) => (
+                      <>
+                        <h3 className="font-bold">Comments on {post.title}:</h3>
+                        <p
+                          className="bg-gray-100 p-2 my-2 rounded"
+                          key={comment.id}
+                        >
+                          {comment.content}
+                        </p>
+                      </>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))
-          : "Loading..."}
+              ))
+            : "Loading..."}
+        </div>
         {/* <PostCreateForm /> */}
       </main>
     </div>
