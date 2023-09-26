@@ -84,6 +84,7 @@ function Home({ signOut, user }: HomeProps) {
                       height={500}
                       // loading="lazy"
                       priority={true}
+                      className="rounded-xl mb-4"
                     />
                   )}
                   <h1 className="text-3xl">{post.title}</h1>
